@@ -27,13 +27,27 @@ function operate(operator,a,b) {
 }
 
 let expression = [];
-const buttons = document.querySelectorAll("button");
+// const buttons = document.querySelectorAll("button");
 const display = document.querySelector("th");
+
+// buttons.forEach((button) => {
+//     button.addEventListener('click',() => {
+//         console.log("hi")
+//         console.log(button.alt);
+//         const selection = button.alt;
+//         expression.push(selection);
+//         display.textContent = selection;
+//     });
+// })
+
+const buttons = document.querySelectorAll("input");
 
 buttons.forEach((button) => {
     button.addEventListener('click',() => {
-        const selection = button.alt;
+        const selection = button.value;
         expression.push(selection);
+        console.log(selection);
+        console.log(expression);
         display.textContent = selection;
     });
 })
