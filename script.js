@@ -56,24 +56,25 @@ buttons.forEach((button) => {
             }
         } else if (button.classList.contains("operator")) {
             console.log("operator");
-            operator = button.value;
+            if (!secondNum){//to add or change the operator before inputting second value
+                operator = button.value;
+            } else{//to add a second operator to the existing expression
+                evaluate()
+                clear()
+                operator = button.value;
+            }
             console.log(operator);
         } else if (button.classList.contains("equal")) {
             console.log("equal");
-            answer = operate(operator,Number(firstNum),Number(secondNum));
+            evaluate();
             console.log(answer, firstNum, operator, secondNum);
-            firstNum = "";
-            operator = "";
-            secondNum = "";
+            clear()
             console.log(answer, firstNum, operator, secondNum);
-            
         } else if (button.classList.contains("clear")) {
             console.log("clear");
-            firstNum = "";
-            operator = "";
-            secondNum = "";
+            clear();
             answer = "";
-            console.log(answer, firstNum, operator, secondNum);
+            console.log("hi",answer, firstNum, operator, secondNum);
         } else if (button.classList.contains("sign")) {
             console.log("sign"); 
         } else if (button.classList.contains("decimal")) {
@@ -84,4 +85,14 @@ buttons.forEach((button) => {
     });
 })
 
+//clear all values except answer
+function clear() { 
+    firstNum = "";
+    operator = "";
+    secondNum = "";
+}
 
+//evaluate the mathematical expression
+function evaluate() {
+    answer = operate(operator,Number(firstNum),Number(secondNum));
+}
