@@ -82,6 +82,11 @@ input:active{
     transform: translateY(1px);
 }
 
+.highlight{
+    background-color: #D9D9D9; 
+    transform: translateY(1px);
+}
+
 
 
 /** smaller media screen 1306 x 969
