@@ -94,6 +94,8 @@ function useCalculator(button){
         console.log(operator);
     } else if (button.classList.contains("equal")) {
         console.log("equal");
+        if (firstNum === "-") firstNum = "";
+        if (secondNum === "-") secondNum ="";
         evaluate();
         display.textContent = answer;
         console.log(answer, firstNum, operator, secondNum);
@@ -107,6 +109,8 @@ function useCalculator(button){
         console.log("hi",answer, firstNum, operator, secondNum);
     } else if (button.classList.contains("sign")) {
         negate();
+    } else if (button.classList.contains("back")) {
+        backspace();
     } 
 }
 
@@ -119,11 +123,6 @@ function clear() {
 
 //evaluate the mathematical expression
 function evaluate() {
-    if (firstNum === "-") {
-        firstNum = "";
-    } else if (secondNum === "-") {
-        secondNum ="";
-    } 
     if (!firstNum && !secondNum) { //if no new values, return last available answer 
         answer = answer;
     } else if (!secondNum) { //if no second values inputted, return first value
@@ -181,3 +180,15 @@ function negate() {
     }
 }
 
+//deleting values in the first or second Num
+function backspace() {
+    if (!operator && firstNum) { //backspacing values in the firstNum
+        firstNum = firstNum.slice(0,-1); 
+        display.textContent = firstNum;
+        console.log("1");
+    } else if (secondNum) { //backspacing values in the secondNum
+        secondNum = secondNum.slice(0,-1); 
+        display.textContent = secondNum;
+        console.log("2");
+    }
+}
