@@ -56,63 +56,71 @@ buttons.forEach((button) => {
 
 //calculator logic
 function useCalculator(button){
-    if (button.classList.contains("num")) {
-        console.log("num");
-        if (!operator) { //inputting first value
-            if (button.value === "." && firstNum.includes(".")) return; 
-            firstNum += button.value;
-            answer = ""
-            console.log(firstNum)
-            display.textContent = firstNum;
-        } else if (answer && firstNum === "") { //inputting second value (to operate on the last answer)
-            if (button.value === "." && secondNum.includes(".")) return;
-            firstNum = String(answer);
-            answer = "";
-            secondNum += button.value;
-            display.textContent = secondNum;
-            console.log(firstNum, answer, operator, secondNum);
-        } else { //inputting second value (to operate on the first value)
-            if (button.value === "." && secondNum.includes(".")) return;
-            if (firstNum === "") firstNum = "0";
-            secondNum += button.value;
-            display.textContent = secondNum;
-            console.log(secondNum)
-        }
-    } else if (button.classList.contains("operator")) {
-        console.log("operator");
-        if (!secondNum){//to add or change the operator before inputting second value
-            operator = button.value;
-            display.textContent = operator;
-            unhighlight();
-            button.classList.toggle("highlight");
-        } else{//to add a second operator to the existing two-term expression
-            evaluate()
+    switch(true) {
+        case (button.classList.contains("num")):
+            console.log("num");
+            if (!operator) { //inputting first value
+                if (button.value === "." && firstNum.includes(".")) return; 
+                firstNum += button.value;
+                answer = ""
+                console.log(firstNum)
+                display.textContent = firstNum;
+            } else if (answer && firstNum === "") { //inputting second value (to operate on the last answer)
+                if (button.value === "." && secondNum.includes(".")) return;
+                firstNum = String(answer);
+                answer = "";
+                secondNum += button.value;
+                display.textContent = secondNum;
+                console.log(firstNum, answer, operator, secondNum);
+            } else { //inputting second value (to operate on the first value)
+                if (button.value === "." && secondNum.includes(".")) return;
+                if (firstNum === "") firstNum = "0";
+                secondNum += button.value;
+                display.textContent = secondNum;
+                console.log(secondNum)
+            }
+            break;
+        case (button.classList.contains("operator")):
+            console.log("operator");
+            if (!secondNum){//to add or change the operator before inputting second value
+                operator = button.value;
+                display.textContent = operator;
+                unhighlight();
+                button.classList.toggle("highlight");
+            } else{//to add a second operator to the existing two-term expression
+                evaluate()
+                clear()
+                operator = button.value;
+                display.textContent = operator;
+            }
+            console.log(operator);
+            break;
+        case (button.classList.contains("equal")):
+            console.log("equal");
+            if (firstNum === "-") firstNum = "";
+            if (secondNum === "-") secondNum ="";
+            evaluate();
+            display.textContent = answer;
+            console.log(answer, firstNum, operator, secondNum);
             clear()
-            operator = button.value;
-            display.textContent = operator;
-        }
-        console.log(operator);
-    } else if (button.classList.contains("equal")) {
-        console.log("equal");
-        if (firstNum === "-") firstNum = "";
-        if (secondNum === "-") secondNum ="";
-        evaluate();
-        display.textContent = answer;
-        console.log(answer, firstNum, operator, secondNum);
-        clear()
-        console.log(answer, firstNum, operator, secondNum);
-    } else if (button.classList.contains("clear")) {
-        console.log("clear");
-        clear();
-        display.textContent = "";
-        answer = "";
-        console.log("hi",answer, firstNum, operator, secondNum);
-    } else if (button.classList.contains("sign")) {
-        negate();
-    } else if (button.classList.contains("back")) {
-        backspace();
-    } 
+            console.log(answer, firstNum, operator, secondNum);
+            break;
+        case (button.classList.contains("clear")):
+            console.log("clear");
+            clear();
+            display.textContent = "";
+            answer = "";
+            console.log("hi",answer, firstNum, operator, secondNum);
+            break;
+        case (button.classList.contains("sign")):
+            negate();
+            break;
+        case (button.classList.contains("back")):
+            backspace();
+            break;
+    }
 }
+
 
 //clear all values except answer
 function clear() { 
