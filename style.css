@@ -46,24 +46,6 @@ td{
     width: 25%;
 }
 
-td button{
-    height: 100%;
-    width: 100%;
-    font-size: 125%;
-    font-family: 'Monaco', monospace;
-    border: .5px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover{
-    background-color: #D9D9D9; 
-}
-
-button:active{
-    transform: translateY(1px);
-}
-
 td input{
     height: 100%;
     width: 100%;
@@ -83,8 +65,16 @@ input:active{
 }
 
 .highlight{
-    background-color: #D9D9D9; 
+    background-color: #F2D5C4; 
     transform: translateY(1px);
+}
+
+.function{
+    background-color:#FAF0E6;
+}
+
+.function:hover{
+    background-color:#F2D5C4 ;
 }
 
 
