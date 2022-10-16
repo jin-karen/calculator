@@ -1,3 +1,4 @@
+//basic mathematical functions
 function add(a,b) {
     return a + b;
 }
@@ -38,6 +39,7 @@ function operate(operator,a,b) {
     }
 }
 
+//set up for display and calculator logic
 const buttons = document.querySelectorAll("input");
 const display = document.querySelector("th");
 let firstNum = "";
@@ -45,11 +47,7 @@ let secondNum = "";
 let operator = "";
 let answer = "";
 
-/**console.log(selection);
-        console.log(expression);= button.value;
-       display.textContent = selection;
-**/
-
+//add event listener for all buttons for calculator to run
 buttons.forEach((button) => {
     button.addEventListener('click',() => {
         useCalculator(button);
@@ -66,15 +64,16 @@ function useCalculator(button){
             answer = ""
             console.log(firstNum)
             display.textContent = firstNum;
-        } else if (answer && firstNum === "") { //inputting second value (to add to the last answer)
+        } else if (answer && firstNum === "") { //inputting second value (to operate on the last answer)
             if (button.value === "." && secondNum.includes(".")) return;
             firstNum = String(answer);
             answer = "";
             secondNum += button.value;
             display.textContent = secondNum;
             console.log(firstNum, answer, operator, secondNum);
-        } else { //inputting second value (to add to the first value)
+        } else { //inputting second value (to operate on the first value)
             if (button.value === "." && secondNum.includes(".")) return;
+            if (firstNum === "") firstNum = "0";
             secondNum += button.value;
             display.textContent = secondNum;
             console.log(secondNum)
@@ -125,9 +124,9 @@ function evaluate() {
     } else if (secondNum === "-") {
         secondNum ="";
     } 
-    if (!firstNum) { //if no new values or operator inputted, return last available answer 
+    if (!firstNum && !secondNum) { //if no new values, return last available answer 
         answer = answer;
-    } else if (!secondNum) { //if no operator or second values inputted, return first value
+    } else if (!secondNum) { //if no second values inputted, return first value
         answer = firstNum;
     } else if (firstNum === "Error") {
         answer = "Error";
