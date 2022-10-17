@@ -37,7 +37,7 @@ tr{
 
 th{
     height: 100px;
-    border: 1px solid black;
+    border: 1.5px solid black;
     border-radius: 5px;
     background-color: #FEFCFA;
 }
@@ -77,7 +77,48 @@ input:active{
     background-color:#F2D5C4 ;
 }
 
+.keySupportUsage{
+    border: 2px inset #C5BABE !important; 
+}
 
+#keyDisplay {
+    justify-content: center;
+    margin: 50px auto auto;
+    width: 25%;
+    height: 100px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    background-color: #FEFCFA;
+    text-align: center;
+    padding: 40px;
+}
+
+#calculatorLog{
+    position: absolute;
+    left: 15%;
+    top: 230px;
+    width: 20%;
+    height: 400px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    background-color: #FEFCFA;
+    text-align: center;
+    padding: 40px;
+}
+
+#keyBtn{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+#logBtn{
+    position: absolute;
+    top: 200px;
+    left: 27%;
+}
 
 /** smaller media screen 1306 x 969
 table{

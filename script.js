@@ -49,7 +49,7 @@ let answer = "";
 
 //add event listener for all buttons for calculator to run
 buttons.forEach((button) => {
-    button.addEventListener('click',() => {
+    button.addEventListener("click",() => {
         useCalculator(button);
     });
 })
@@ -138,7 +138,7 @@ function evaluate() {
     } else if (firstNum === "Error") {
         answer = "Error";
     } else{
-        answer = (operate(operator,Number(firstNum),Number(secondNum)));
+        answer = (operate(operator,Number(firstNum),Number(secondNum))).toFixed(10);
     }
     unhighlight()
 }
@@ -200,3 +200,4 @@ function backspace() {
         console.log("2");
     }
 }
+
