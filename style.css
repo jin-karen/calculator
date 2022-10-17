@@ -106,6 +106,19 @@ input:active{
     padding: 40px;
 }
 
+#helpDisplay{
+    position: absolute;
+    right: 30px;
+    bottom: 95px;
+    width: 30%;
+    height: 600px;
+    border: 1.5px solid black;
+    border-radius: 5px;
+    background-color: #FEFCFA;
+    text-align: center;
+    padding: 40px;
+}
+
 #keyBtn{
     position: absolute;
     bottom: 20px;
@@ -118,6 +131,12 @@ input:active{
     position: absolute;
     top: 200px;
     left: 27%;
+}
+
+#helpBtn{
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
 }
 
 /** smaller media screen 1306 x 969
