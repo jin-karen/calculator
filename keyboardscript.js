@@ -16,6 +16,7 @@ document.addEventListener("keydown", (event) => {
             case(validNums.includes(event.key)):
                 console.log(keyAnswer);
                 if (keyAnswer) {
+                    //clear previous answer and screen if starting a new expression
                     keyAnswer = null;
                     keyDisplay.textContent = "";
                 }
@@ -68,6 +69,6 @@ function parseAndEvaluate(event,validNums,validOperators,validFunctions) {
         }
         console.log(parsedExpression);
         console.log(keyAnswer);
-        keyDisplay.textContent = keyAnswer;
+        keyDisplay.textContent = limit10Dec(keyAnswer);
     }
 }
