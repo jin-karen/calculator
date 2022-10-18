@@ -43,13 +43,13 @@
                 <td><input type="button" class="equal function" value="="></td>
             </tr>
         </table>
-        <button id="logBtn" class="logSupport">Calculator Memory Log</button>
-        <div id="calculatorLog" class="logSupport"></div>
-        <button id="keyBtn" class="keySupport">Keyboard Support Calculator</button>
-        <div id="keyDisplay" class="keySupport"></div>
-        <button id="helpBtn" class="helpSupport">Help</button>
-        <div id="helpDisplay" class="helpSupport"></div>
+        <button id="logBtn" class="supportBtn logSupport">Calculator Memory Log</button>
+        <pre id="logDisplay" class="logSupport hidden"></pre>
+        <button id="keyBtn" class="supportBtn keySupport">Keyboard Support Calculator</button>
+        <div id="keyDisplay" class="keySupport hidden"></div>
+        <button id="helpBtn" class="supportBtn helpSupport">Help</button>
+        <div id="helpDisplay" class="helpSupport hidden"></div>
 	    <script src="script.js"></script>
-        <script src="keyboardscript.js"></script>
+        <script src="support-script.js"></script>
     </body>
 </html>

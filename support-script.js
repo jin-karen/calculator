@@ -1,7 +1,32 @@
+//add calculator log, keyboard, and help support display on calculator
+const supportBtns = document.querySelectorAll(".supportBtn");
+const logDisplay = document.getElementById("logDisplay");
+const keyDisplay = document.getElementById("keyDisplay");
+const helpDisplay = document.getElementById("helpDisplay");
+supportBtns.forEach((button) => {
+    button.addEventListener("click", ()=> {
+        console.log("hi");
+        console.log(button.id);
+        switch(true) {
+            case (button.id === "logBtn"):
+                logDisplay.classList.toggle("hidden");
+                break;
+            case (button.id === "keyBtn"):
+                keyDisplay.classList.toggle("hidden");
+                if (keyDisplay.classList.contains("keySupportUsage")) {
+                    keyDisplay.classList.toggle("keySupportUsage");
+                }
+                break;
+            case (button.id === "helpBtn"):
+                helpDisplay.classList.toggle("hidden");
+                break;
+        }
+    })
+})
+
 //add keyboard support on calculator
 //keyboard support setup
 let keyAnswer;
-const keyDisplay = document.getElementById("keyDisplay");
 keyDisplay.addEventListener("click", () => {
     keyDisplay.classList.toggle("keySupportUsage");
 })
@@ -61,14 +86,38 @@ function parseAndEvaluate(event,validNums,validOperators,validFunctions) {
         while (parsedExpression.length > 1) {
             console.log(parsedExpression);
             keyAnswer = operate(parsedExpression[1], Number(parsedExpression[0]), Number(parsedExpression[2]));
+            keyCalculatorLog(parsedExpression,keyAnswer);
             parsedExpression.shift();
             parsedExpression.shift();
             parsedExpression.shift();
             parsedExpression.unshift(keyAnswer)
             console.log(parsedExpression);
+            
         }
         console.log(parsedExpression);
         console.log(keyAnswer);
         keyDisplay.textContent = limit10Dec(keyAnswer);
+        
     }
 }
+
+//add calculator log support on calculator
+//calculator log support logic for calculator
+function calculatorLog(){
+    console.log("yellow")
+    logEquation = `${firstNum} ${operator} ${secondNum}   =   ${answer}\n`;
+    logDisplay.textContent += logEquation;
+}
+
+//calculator log support logic for key support
+function keyCalculatorLog(parsedExpression, keyAnswer){
+    console.log("yellow")
+    logEquation = `${parsedExpression[0]} ${parsedExpression[1]} ${parsedExpression[2]}   =   ${keyAnswer}\n`;
+    logDisplay.textContent += logEquation;
+}
+
+//clear calculator log - only called when clear is pressed on calculator
+function clearCalculatorLog() {
+    logDisplay.textContent = "";
+}
+

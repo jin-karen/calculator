@@ -81,6 +81,10 @@ input:active{
     border: 2px inset #C5BABE !important; 
 }
 
+.hidden{
+    display: none;
+}
+
 #keyDisplay {
     justify-content: center;
     margin: 50px auto auto;
@@ -93,7 +97,7 @@ input:active{
     padding: 40px;
 }
 
-#calculatorLog{
+#logDisplay{
     position: absolute;
     left: 15%;
     top: 230px;

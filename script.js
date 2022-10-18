@@ -110,6 +110,7 @@ function useCalculator(button){
             clear();
             display.textContent = "";
             answer = "";
+            clearCalculatorLog();
             console.log("hi",answer, firstNum, operator, secondNum);
             break;
         case (button.classList.contains("sign")):
@@ -143,8 +144,9 @@ function evaluate() {
         answer = "Error";
     } else{
         answer = limit10Dec(operate(operator,Number(firstNum),Number(secondNum)));
+        calculatorLog();
     }
-    unhighlight()
+    unhighlight();
 }
 
 //unhighlighting any highlighted buttons by toggling class off
