@@ -25,9 +25,9 @@ table{
     margin:auto auto;
     width: 25%;
     height: 50%;
-    border: 1px solid black;
-    border-radius: 7px;
-    padding: 20px;
+    border: 2px solid #9F614B;;
+    border-radius: 10px;
+    padding: 25px;
     background-color:#C8A397;
 }
 
@@ -37,10 +37,11 @@ tr{
 
 th{
     height: 100px;
-    border: 1.5px solid black;
-    border-radius: 5px;
+    border: 2px solid #9F614B;;
+    border-radius: 7px;
     background-color: #FEFCFA;
     color: #874026;
+    font-size: 105%;
 }
 
 td{
@@ -52,8 +53,8 @@ td input{
     width: 100%;
     font-size: 125%;
     font-family: 'Monaco', monospace;
-    border: .5px solid black;
-    border-radius: 5px;
+    border: 2px solid #9F614B;;
+    border-radius: 7px;
     cursor: pointer;
     color:#9F614B;
 }
@@ -95,12 +96,19 @@ input:active{
     text-align: center;
     padding: 40px;
 }
+/****/
+.supportBtn{
+    background-color: white;
+    border: 0px;
+    cursor: pointer;
+}
 
 #keyDisplay {
     justify-content: center;
-    margin: 50px auto auto;
+    margin: 40px auto auto;
     width: 25%;
     height: 100px;
+    font-size: 105%;
 }
 
 #logDisplay{
@@ -126,19 +134,24 @@ input:active{
     bottom: 20px;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 90px;
 }
 
 #logBtn{
     position: absolute;
     top: 200px;
-    left: 27%;
+    left: 34%;
+    width: 30px;
 }
 
 #helpBtn{
     position: absolute;
     bottom: 30px;
     right: 30px;
+    width: 40px;
 }
+
+
 
 /** smaller media screen 1306 x 969
 table{
