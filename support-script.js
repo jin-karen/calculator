@@ -53,25 +53,30 @@ document.addEventListener("keydown", (event) => {
                 keyAnswer = null;
                 break;
             case(validFunctions.includes(event.key)):
-                parseAndEvaluate(event,validNums,validOperators,validFunctions);
-                break;
-        }
-    }    
+                if (event.key === "Backspace") {
+                    keyDisplay.textContent = keyDisplay.textContent.slice(0,-1);
+                    console.log(keyDisplay);
+                } else if (event.key === "Escape") {
+                    keyDisplay.classList.toggle("keySupportUsage");
+                    console.log(keyDisplay);
+                } else {
+                    parseAndEvaluate(event,validNums,validOperators);
+                    break;
+                }
+        }    
     console.log("end");
+    }
 })
 
 //function to evaluate and return the expression given by the keyboard
-function parseAndEvaluate(event,validNums,validOperators,validFunctions) {
+function parseAndEvaluate(event,validNums,validOperators) {
     console.log(event.key);
-    if (event.key === "Backspace") {
-        keyDisplay.textContent = keyDisplay.textContent.slice(0,-1);
-        console.log(keyDisplay);
-    } else if (event.key === "Escape") {
-        keyDisplay.classList.toggle("keySupportUsage");
-        console.log(keyDisplay);
-    } else {
-        const expression = keyDisplay.textContent;
-        console.log(expression);
+    const expression = keyDisplay.textContent;
+    console.log(expression);
+    if (expression.includes("Error")) {
+        keyAnswer  = "Error";
+        keyDisplay.textContent = keyAnswer;
+    } else{
         let parsedExpression = "";
         for (const char of expression) {
             if (validNums.includes(char)) {
@@ -80,7 +85,7 @@ function parseAndEvaluate(event,validNums,validOperators,validFunctions) {
                 parsedExpression += ",";
                 parsedExpression += char;
                 parsedExpression += ",";
-            }
+            } 
         }
         parsedExpression = parsedExpression.split(",");
         while (parsedExpression.length > 1) {
@@ -96,28 +101,49 @@ function parseAndEvaluate(event,validNums,validOperators,validFunctions) {
         }
         console.log(parsedExpression);
         console.log(keyAnswer);
-        keyDisplay.textContent = limit10Dec(keyAnswer);
+        if (keyAnswer === "Error") {
+            keyDisplay.textContent = keyAnswer;
+        } else{
+            keyDisplay.textContent = limit8Dec(keyAnswer);
+        }
         
+        console.log(keyAnswer);
     }
 }
 
+
 //add calculator log support on calculator
+let logLines = 0;
 //calculator log support logic for calculator
 function calculatorLog(){
-    console.log("yellow")
-    logEquation = `${firstNum} ${operator} ${secondNum}   =   ${answer}\n`;
+    console.log("yellow");
+    let logEquation = `${firstNum} ${operator} ${secondNum}   =   ${answer}\n`;
+    if (logEquation.length > 25) {
+        logEquation = `${firstNum} ${operator} ${secondNum} \n= ${answer}\n`;
+        logLines += 1;
+    }
     logDisplay.textContent += logEquation;
+    logLines += 1;
+    console.log(logLines);
 }
 
 //calculator log support logic for key support
 function keyCalculatorLog(parsedExpression, keyAnswer){
     console.log("yellow")
-    logEquation = `${parsedExpression[0]} ${parsedExpression[1]} ${parsedExpression[2]}   =   ${keyAnswer}\n`;
-    logDisplay.textContent += logEquation;
+    let logKeyEquation = `${parsedExpression[0]} ${parsedExpression[1]} ${parsedExpression[2]}  =  ${keyAnswer}\n`;
+    if (logKeyEquation.length > 25) {
+        logKeyEquation = `${parsedExpression[0]} ${parsedExpression[1]} ${parsedExpression[2]} \n= ${keyAnswer}\n`;
+        logLines += 1;
+    }
+    logDisplay.textContent += logKeyEquation;
+    logLines += 1;
+    console.log(logLines);
 }
 
 //clear calculator log - only called when clear is pressed on calculator
 function clearCalculatorLog() {
     logDisplay.textContent = "";
+    logLines = 0;
 }
 
+//22 loglines is enough

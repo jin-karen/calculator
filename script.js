@@ -122,9 +122,9 @@ function useCalculator(button){
     }
 }
 
-//Limit the answer to 10 decimal places if applicable
-function limit10Dec(num){
-    return Math.round(num * 10000000000) / 10000000000;
+//Limit the answer to 8 decimal places if applicable
+function limit8Dec(num){
+    return Math.round(num * 100000000) / 100000000;
 }
 
 //clear all values except answer
@@ -143,7 +143,7 @@ function evaluate() {
     } else if (firstNum === "Error") {
         answer = "Error";
     } else{
-        answer = limit10Dec(operate(operator,Number(firstNum),Number(secondNum)));
+        answer = limit8Dec(operate(operator,Number(firstNum),Number(secondNum)));
         calculatorLog();
     }
     unhighlight();
