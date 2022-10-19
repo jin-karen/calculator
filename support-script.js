@@ -113,8 +113,8 @@ function parseAndEvaluate(event,validNums,validOperators) {
 
 
 //add calculator log support on calculator
-let logLines = 0;
 //calculator log support logic for calculator
+let logLines = 0;
 function calculatorLog(){
     console.log("yellow");
     let logEquation = `${firstNum} ${operator} ${secondNum}   =   ${answer}\n`;
@@ -125,6 +125,7 @@ function calculatorLog(){
     logDisplay.textContent += logEquation;
     logLines += 1;
     console.log(logLines);
+    limit16Lines();
 }
 
 //calculator log support logic for key support
@@ -138,6 +139,7 @@ function keyCalculatorLog(parsedExpression, keyAnswer){
     logDisplay.textContent += logKeyEquation;
     logLines += 1;
     console.log(logLines);
+    limit16Lines();
 }
 
 //clear calculator log - only called when clear is pressed on calculator
@@ -146,4 +148,12 @@ function clearCalculatorLog() {
     logLines = 0;
 }
 
-//22 loglines is enough
+//limits the calculator log display to 16 lines, removing earlier ones
+function limit16Lines() {
+    while (logLines > 16) {
+        let lines = logDisplay.textContent.split("\n");
+        lines.shift();
+        logDisplay.textContent = lines.join("\n");
+        logLines -= 1;
+    }
+}
