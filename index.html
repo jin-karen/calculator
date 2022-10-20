@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="style.css">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
     </head>
-
     <body>
         <h1>Calculator</h1>
         <table id="calculator">
@@ -44,12 +43,13 @@
                 <td><input type="button" class="equal function" value="="></td>
             </tr>
         </table>
-        <img id="logBtn" class="supportBtn logSupport" src="img/history.png" title="calculator log" alt="calculator log button">
-        <pre id="logDisplay" class="supportDisplay logSupport hidden"></pre>
-        <img id="keyBtn" class="supportBtn keySupport" src="img/keyboard.png" title="keyboard support" alt="keyboard support button">
-        <div id="keyDisplay" class="supportDisplay keySupport hidden"></div>
-        <img id="helpBtn" class="supportBtn helpSupport" src="img/help.png" title="help" alt="help button">
-        <div id="helpDisplay" class="supportDisplay helpSupport hidden">
+        <img id="logBtn" class="supportBtn" src="img/history.png" title="calculator log" alt="calculator log button">
+        <pre id="logDisplay" class="supportDisplay hidden"></pre>
+        <img id="keyBtn" class="supportBtn" src="img/keyboard.png" title="keyboard support" alt="keyboard support button">
+        <div id="keyDisplay" class="supportDisplay hidden"></div>
+        <h4 id="keyClear" class="hidden">clear</h4>
+        <img id="helpBtn" class="supportBtn" src="img/help.png" title="help" alt="help button">
+        <div id="helpDisplay" class="supportDisplay hidden">
             <h2>Calculator Support</h2>
             <p>
                 This is a basic calculator that is able to perform the following arithmetic 
@@ -67,7 +67,7 @@
                 The calculator has keyboard support and its display can be toggled from the bottom 
                 keyboard support button. The support is enabled after clicking the display, which allows 
                 you to input mathematical expressions with your keyboard rather than clicking the buttons
-                on the calculator. 
+                on the calculator. The keyboard support display can be cleared with the clear button.
             </p>
             <h3>Calculator Memory Log</h3>
             <p>
@@ -78,7 +78,7 @@
             </p><br>
             <h3>Enjoy!</h3>
         </div>
-        <div class="footer">© 2022 Karen Jin</div>
+        <div id="footer">© 2022 Karen Jin</div>
 	    <script src="script.js"></script>
         <script src="support-script.js"></script>
     </body>

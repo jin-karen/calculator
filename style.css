@@ -10,7 +10,6 @@ html{
 body {
     margin: 0px;
     font-family: 'Monaco', monospace;
-    /**height: 100%;overflow: hidden;**/
 }
 
 h1{
@@ -21,6 +20,7 @@ h1{
     color: #9F614B;
 }
 
+/**calculator display setup**/
 table{
     justify-content: center;
     margin:auto auto;
@@ -60,16 +60,12 @@ td input{
     color:#9F614B;
 }
 
+/**highlights calculator buttons (hover and clicked)**/
 input:hover{
     background-color: #D9D9D9; 
 }
 
 input:active{
-    transform: translateY(1px);
-}
-
-.highlight{
-    background-color: #F2D5C4; 
     transform: translateY(1px);
 }
 
@@ -81,10 +77,16 @@ input:active{
     background-color:#F2D5C4 ;
 }
 
+.highlight{
+    background-color: #F2D5C4!important; 
+    transform: translateY(1px)!important;
+}
+
 .keySupportUsage{
     border: 4px inset #C5BABE !important; 
 }
 
+/**support functions setup**/
 .hidden{
     display: none;
 }
@@ -97,7 +99,7 @@ input:active{
     text-align: center;
     padding: 40px;
 }
-/****/
+
 .supportBtn{
     border: 0px;
     cursor: pointer;
@@ -129,6 +131,14 @@ input:active{
     font-size: 90%;
 }
 
+#keyClear{
+    color: #D8BFB6;
+    position: absolute;
+    bottom: 140px;
+    left: 59%;
+    cursor: pointer;
+}
+
 #keyBtn{
     position: absolute;
     bottom: 20px;
@@ -148,10 +158,10 @@ input:active{
     position: absolute;
     bottom: 30px;
     right: 30px;
-    width: 40px;/**  **/
+    width: 40px;
 }
 
-.footer{
+#footer{
     position: absolute;
     bottom: 3px;
     left: 50%;
