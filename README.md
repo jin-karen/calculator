@@ -9,5 +9,6 @@ Live: https://jin-karen.github.io/calculator/
 Project was coded for 1920x1080 display resolution and adjustments were made for smaller screens.<br/>
 Desktop chrome usage at 1920x1080 is recommended for best and playing viewing experience.  
 
-## Screenshots
-![Calculator_Project](https://user-images.githubusercontent.com/102393842/217392120-6eaf7d9f-f3d1-4f82-8667-dbcfaa643b5f.png)
+## Screenshots:
+![Calculator_Project](https://user-images.githubusercontent.com/102393842/217392965-140a1df4-7153-451d-9998-f38a09520764.png)
+![Calculator_Support](https://user-images.githubusercontent.com/102393842/217392120-6eaf7d9f-f3d1-4f82-8667-dbcfaa643b5f.png)
